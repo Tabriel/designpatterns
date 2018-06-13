@@ -8,12 +8,14 @@ public class App {
 
         val towerProxy = TowerFactory.createBlackTower(5);
 
-        tower.enter(new Wizard("Gifi"));
-        tower.enter(new Wizard("Gandalf"));
-        tower.enter(new Wizard("Harry Ollar"));
-        tower.enter(new Wizard("Un A"));
-        tower.enter(new Wizard("Omu Negru"));
-        tower.enter(new Wizard("Fara Frica"));
+        //val tower =TowerFactory.createBlackTower(5);
+
+        towerProxy.enter(new Wizard("Gifi"));
+        towerProxy.enter(new Wizard("Gandalf"));
+        towerProxy.enter(new Wizard("Harry Ollar"));
+        towerProxy.enter(new Wizard("Un A"));
+        towerProxy.enter(new Wizard("Omu Negru"));
+        towerProxy.enter(new Wizard("Fara Frica"));
     }
 
 }
