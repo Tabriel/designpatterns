@@ -14,7 +14,7 @@ public class Troll implements Creature {
     }
 
     @Override
-    public int getAttackPower() {
+    public Integer getAttackPower() {
         return attackPower;
     }
 

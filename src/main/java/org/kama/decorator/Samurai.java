@@ -14,7 +14,7 @@ public class Samurai implements Creature {
     }
 
     @Override
-    public int getAttackPower() {
+    public Integer getAttackPower() {
         return attackPower;
     }
 

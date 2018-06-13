@@ -17,7 +17,7 @@ public class MiddleLevelCreature implements Creature {
     }
 
     @Override
-    public int getAttackPower() {
+    public Integer getAttackPower() {
         return decorated.getAttackPower() + 5;
     }
 

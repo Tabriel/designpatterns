@@ -4,9 +4,11 @@ import java.util.function.Function;
 
 public class CreatureUpgrader implements Creature {
 
-    private int attackPower;
-    private String fleeMode;
-    private String attackMode;
+    private static final Function IDENTITTY_FUNCTION = x -> x;
+
+    private Function<Integer, Integer> attackPower;
+    private Function<String, String> fleeMode;
+    private Function<String, String> attackMode;
     //decorated
     private Creature creature;
 
@@ -17,40 +19,39 @@ public class CreatureUpgrader implements Creature {
         this.creature = builder.creature;
     }
 
-    public static Builder builder() {
-        return new Builder();
+
+    private <T> Function<T, T> checkNull(Function<T, T> function) {
+        if (function == null) {
+            return IDENTITTY_FUNCTION;
+        }
+        return function;
+    }
+
+    public static Builder upgrade(Creature creature) {
+        return new Builder().withCreature(creature);
     }
 
     @Override
     public String attack() {
-        String newAttackMode = String.format("New attack mode is %s.", this.attackMode);
-        return creature.attack() + newAttackMode;
+        return checkNull(attackMode).apply(creature.attack());
     }
 
     @Override
-    public int getAttackPower() {
-        return  creature.getAttackPower() + this.attackPower;
-        //return amplifier.apply(creature.attack());
-
+    public Integer getAttackPower() {
+        return checkNull(attackPower).apply(creature.getAttackPower());
     }
 
     @Override
     public String fleeBattle() {
-        String newFleeMode = String.format("New flee mode is %s.", this.fleeMode);
-        return creature.fleeBattle() + newFleeMode;
+        return checkNull(fleeMode).apply(creature.fleeBattle());
     }
 
     public static class Builder {
-        private int attackPower;
-        private String fleeMode;
-        private String attackMode;
+
+        private Function<Integer, Integer> attackPower;
+        private Function<String, String> fleeMode;
+        private Function<String, String> attackMode;
         private Creature creature;
-
-
-        private static final Function IDENTITTY_FUNCTION = x -> x;
-        private Function<String, String> upgradeAttack();
-        private Function<String, String> upgradeFlee();
-        private Function<Integer, Integer> upgradePower();
 
         public Builder withCreature(Creature creature) {
             this.creature = creature;
@@ -58,18 +59,17 @@ public class CreatureUpgrader implements Creature {
         }
 
         public Builder withAttackMode(Function<String, String> func) {
-            checkNull(func).apply(creature.attack());
-            this.attackMode = attackMode;
+            this.attackMode = func;
             return this;
         }
 
-        public Builder upgradePower(int attackPower) {
-            this.attackPower = attackPower;
+        public Builder upgradePower(Function<Integer, Integer> func) {
+            this.attackPower = func;
             return this;
         }
 
-        public Builder withFleeMode(String fleeMode) {
-            this.fleeMode = fleeMode;
+        public Builder withFleeMode(Function<String, String> func) {
+            this.fleeMode = func;
             return this;
         }
 
@@ -78,11 +78,5 @@ public class CreatureUpgrader implements Creature {
         }
 
 
-        private <T> Function<T, T> checkNull(Function<T, T> function) {
-            if (function == null) {
-                return IDENTITTY_FUNCTION
-            }
-            return function;
-        }
     }
 }

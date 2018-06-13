@@ -3,7 +3,7 @@ package org.kama.decorator;
 public interface Creature {
 
     String attack();
-    int getAttackPower();
+    Integer getAttackPower();
     String fleeBattle();
 
     default void doTheThing() {

@@ -10,13 +10,13 @@ public class App {
         val troll = new TrollFactory().getCreature();
         val samurai = new SamuraiFactory().getCreature();
 
-        //TODO create an upgrade Creature builder : DONE here
-        val upCreature = CreatureUpgrader.builder()
-                .withCreature(troll)
-                .withAttackMode("fiercly")
-                .upgradePower(17)
-                .withFleeMode("very scared")
-                .build();
+        //TODO create an upgrade Creature upgrade : DONE here
+//        val upCreature = CreatureUpgrader.upgrade()
+//                .withCreature(troll)
+//                .withAttackMode("fiercly")
+//                .upgradePower(17)
+//                .withFleeMode("very scared")
+//                .build();
 
         //troll.doTheThing();
         //upCreature.doTheThing();
@@ -25,14 +25,22 @@ public class App {
         //val middleTroll = new MiddleLevelCreature(troll);
         //doTheThing(middleTroll);
 
-        val upSamurai = CreatureUpgrader.builder()
-                .withCreature(samurai)
-                .withAttackMode(x -> String.format("The best Samurai %s", x))
-                .upgradePower(x -> x * x)
-                .withFleeMode("horified")
+//        val upSamurai = CreatureUpgrader.upgrade()
+//                .withCreature(samurai)
+//                .withAttackMode(x -> String.format("The best Samurai %s", x))
+//                .upgradePower(x -> x * x)
+//                .withFleeMode("horified")
+//                .build();
+
+//        upSamurai.doTheThing();
+
+        val upTroll = CreatureUpgrader.upgrade(troll)
+                .withAttackMode(a -> String.format("With great power %s and no shame", a))
+                .upgradePower(x -> x*x)
                 .build();
 
-        upSamurai.doTheThing();
+        troll.doTheThing();
+        upTroll.doTheThing();
     }
 }
 
