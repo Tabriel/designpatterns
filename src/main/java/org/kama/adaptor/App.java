@@ -10,9 +10,11 @@ public class App {
 
         val captain = new Captain(BoatFactory.createSmallBoat());
 
-        //captain.setMyBoat(new MotorBoatAdapter(motorboat));
+        captain.setMyBoat(new MotorBoatAdapter(motorboat));
+
         captain.setMyBoat(BoatFactory.createAdaptedMotorBoat(motorboat));
-        //captain.setMyBoat(boat -> );
+
+        //captain.setMyBoat( motorboat -> motorboat.startEngine() );
 
         captain.sail();
     }

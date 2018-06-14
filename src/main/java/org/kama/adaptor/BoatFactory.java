@@ -12,6 +12,7 @@ public class BoatFactory {
 
     //new stuff
     public static RowingBoat createAdaptedMotorBoat(final MotorBoat motorBoat) {
+
         return new MotorBoatAdapter(motorBoat);
     }
 
