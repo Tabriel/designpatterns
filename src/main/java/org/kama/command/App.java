@@ -44,6 +44,7 @@ public class App {
                     break;
                 default:
                     System.out.printf("Don't know that! Try: 'invisible', 'shrink', 'undo");
+
                     break;
             }
             target.status();

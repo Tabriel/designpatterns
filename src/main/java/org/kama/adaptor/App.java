@@ -2,6 +2,8 @@ package org.kama.adaptor;
 
 import lombok.val;
 
+import java.util.stream.Stream;
+
 public class App {
 
     public static void main(String[] args) {
@@ -17,5 +19,7 @@ public class App {
         //captain.setMyBoat( motorboat -> motorboat.startEngine() );
 
         captain.sail();
+
+        Stream.of("gigi", "ion", "io").forEach(System.out::println);
     }
 }

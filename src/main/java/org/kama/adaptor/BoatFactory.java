@@ -16,4 +16,8 @@ public class BoatFactory {
         return new MotorBoatAdapter(motorBoat);
     }
 
+    public static RowingBoat adaptFishingBoat(final FishingBoat fishingBoat) {
+
+        return fishingBoat::startFishing;
+    }
 }
