@@ -6,7 +6,7 @@ public class App {
 
     public static void main(String[] args) {
 
-        val towerProxy = TowerFactory.createBlackTower(5);
+        val towerProxy = TowerFactory.createBlackTower(2);
 
         //val tower =TowerFactory.createBlackTower(5);
 

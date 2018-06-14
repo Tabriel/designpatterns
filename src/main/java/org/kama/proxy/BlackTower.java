@@ -1,7 +1,6 @@
 package org.kama.proxy;
 
 import lombok.AllArgsConstructor;
-import lombok.NoArgsConstructor;
 
 @AllArgsConstructor
 public class BlackTower implements WizardTower {
