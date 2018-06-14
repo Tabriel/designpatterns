@@ -1,4 +1,4 @@
-package org.kama.facade;
+package org.kama.facade.computer;
 
 import lombok.val;
 
