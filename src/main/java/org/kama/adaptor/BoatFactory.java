@@ -15,5 +15,4 @@ public class BoatFactory {
         return new MotorBoatAdapter(motorBoat);
     }
 
-
 }
